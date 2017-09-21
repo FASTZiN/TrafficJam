@@ -1,4 +1,4 @@
-//  Copyright [2017] <Caio Cardoso> Oi hahahahahahahahah
+//  Copyright [2017] <Caio Cardoso>
 
 #ifndef STRUCTURES_CIRCULAR_LIST_H
 #define STRUCTURES_CIRCULAR_LIST_H
@@ -85,7 +85,7 @@ class CircularList {
     std::size_t size() const;
 
  private:
-    class Node {
+    class Node {	 	  	 	     	    		     		      	   	 	
      public:
         explicit Node(const T& data):
           data_{data}
@@ -124,7 +124,7 @@ class CircularList {
 };
 
 template<typename T>
-CircularList<T>::CircularList() {
+CircularList<T>::CircularList() {	 	  	 	     	    		     		      	   	 	
     sentinela = new Node(-100);
     head = sentinela;
     size_ = -1;
@@ -161,7 +161,7 @@ Node *newNode = new Node(data);
         newNode -> next(head);
         x -> next(newNode);
         size_ = size_ + 1;
-        }
+        }	 	  	 	     	    		     		      	   	 	
 }
 
 template<typename T>
@@ -197,7 +197,7 @@ void CircularList<T>::insert(const T& data, std::size_t index) {
                 Node *tmp = new Node(data);
                 for (int i = 0; i <= index; i++) {
                     pointer = pointer ->next();
-                    if (i == index) {
+                    if (i == index) {	 	  	 	     	    		     		      	   	 	
                         tmp ->next(pointer);
                         size_ = size_+1;
                     }
@@ -235,7 +235,7 @@ void CircularList<T>::insert_sorted(const T& data) {
                     if ( i == size_ ) {
                         push_back(data);
                         addSome = true;
-                    }
+                    }	 	  	 	     	    		     		      	   	 	
                 }
             if (i != size_) {
             tmp = tmp ->next();}
@@ -273,7 +273,7 @@ T CircularList<T>::pop(std::size_t index) {
                             delete dlt;
                             size_ = size_ - 1;
                             return returnData;
-                }
+                }	 	  	 	     	    		     		      	   	 	
             }
         }
     }
@@ -309,7 +309,7 @@ template<typename T>
 T CircularList<T>::pop_front() {
     if (empty()) {
         throw std::out_of_range("List is empty");
-    } else {
+    } else {	 	  	 	     	    		     		      	   	 	
          Node *dlt = head->next();
         head -> next(dlt -> next());
         T returnData = dlt -> data();
@@ -346,7 +346,7 @@ void CircularList<T>::remove(const T& data) {
 template<typename T>
 bool CircularList<T>::empty() const {
     return size_ == -1;
-}
+}	 	  	 	     	    		     		      	   	 	
 
 template<typename T>
 bool CircularList<T>::contains(const T& data) const {
@@ -384,7 +384,7 @@ T& CircularList<T>::at(std::size_t index) {
 }
 
 template<typename T>
-const T& CircularList<T>::at(std::size_t index) const {
+const T& CircularList<T>::at(std::size_t index) const {	 	  	 	     	    		     		      	   	 	
     Node *tmp = head;
     if (index < 0 || index > size_) {
         throw std::out_of_range("Invalid Index");
@@ -420,7 +420,7 @@ std::size_t CircularList<T>::find(const T& data) const {
 template<typename T>
 std::size_t CircularList<T>::size() const {
     return size_ +1;
-}
+}	 	  	 	     	    		     		      	   	 	
 }  // namespace structures
 
 #endif

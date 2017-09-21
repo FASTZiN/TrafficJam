@@ -2,7 +2,7 @@
 #ifndef STRUCTURES_LINKED_QUEUE_H
 #define STRUCTURES_LINKED_QUEUE_H
 
-#include "./LinkedList.h"  // Classe a ser herdada (Pilha herda lista)
+#include "./linked_list.h"  // Classe a ser herdada (Pilha herda lista)
 
 namespace structures {
 
@@ -74,7 +74,7 @@ class LinkedQueue {
 };  // Fim da classe LinkedQueue.
 
     template<typename T>
-    LinkedQueue<T>::LinkedQueue() {
+    LinkedQueue<T>::LinkedQueue() {	 	  	 	     	    		     		      	   	 	
     }
 
     template<typename T>
@@ -110,7 +110,7 @@ class LinkedQueue {
     template<typename T>
     T& LinkedQueue<T>::front() const {
         return front();
-    }
+    }	 	  	 	     	    		     		      	   	 	
 
     template<typename T>
     T& LinkedQueue<T>::back() const {
