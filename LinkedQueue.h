@@ -2,7 +2,7 @@
 #ifndef STRUCTURES_LINKED_QUEUE_H
 #define STRUCTURES_LINKED_QUEUE_H
 
-#include "./linked_list.h"  // Classe a ser herdada (Pilha herda lista)
+#include "./LinkedList.h"  // Classe a ser herdada (Pilha herda lista)
 
 namespace structures {
 
