@@ -1,4 +1,4 @@
-//  Copyright [2017] <Caio Cardoso>
+//  Copyright [2017] <Caio Cardoso> Oi hahahahahahahahah
 
 #ifndef STRUCTURES_CIRCULAR_LIST_H
 #define STRUCTURES_CIRCULAR_LIST_H
