@@ -26,7 +26,7 @@ private:
 
 	int size, velocity;
 	structures::LinkedQueue<Vehicle> vehicle_list { };
-	structures::ArrayList<Track> out_ways { 0 };
+	structures::ArrayList<Track> out_ways;
 	std::string track_name;
 	Semaphore semaphore;
 

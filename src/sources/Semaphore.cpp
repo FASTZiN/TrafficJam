@@ -4,7 +4,7 @@ Semaphore::Semaphore() {
 
 }
 
-Semaphore::Semaphore(std::string name, int green_time, int yellow_time, int red_time) {
+Semaphore::Semaphore(std::string name, int green_time, int red_time) {
 
 }
 
