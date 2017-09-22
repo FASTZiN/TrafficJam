@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef STRUCTURES_LINKED_LIST_H
-#define STRUCTURES_LINKED_LIST_H
+#ifndef TRAFFICJAM_LINKED_LIST_H
+#define TRAFFICJAM_LINKED_LIST_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ exceptions
@@ -349,9 +349,6 @@ class LinkedList {
     bool LinkedList<T>::contains(const T& data) const {
         bool resp = true;
         try {
-            if (data == 10u)
-                resp = false;
-            else
                 find(data);
         } catch (...) {
                 resp = false;
@@ -370,14 +367,10 @@ class LinkedList {
                 aux_ = aux_->next();
                 index_at_++;
             }
-            if ((data == 10u) && (index_at_ == 10)) {
-                return 10;
+            if ((index_at_ == size_) && (aux_->data() != data)) {
+            throw std::out_of_range("This data isn't on your list");
             } else {
-                if ((index_at_ == size_) && (aux_->data() != data)) {
-                    throw std::out_of_range("This data isn't on your list");
-                } else {
-                    return index_at_-1;
-                }
+            	return index_at_-1;
             }
         }
     }

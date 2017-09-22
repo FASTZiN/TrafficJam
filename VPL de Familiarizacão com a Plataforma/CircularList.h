@@ -1,7 +1,7 @@
 //  Copyright [2017] <Caio Cardoso>
 
-#ifndef STRUCTURES_CIRCULAR_LIST_H
-#define STRUCTURES_CIRCULAR_LIST_H
+#ifndef TRAFFICJAM_CIRCULAR_LIST_H
+#define TRAFFICJAM_CIRCULAR_LIST_H
 
 #include <cstdint>
 #include <stdexcept>
@@ -116,7 +116,7 @@ class CircularList {
 
      private:
         T data_;
-        Node* next_;
+        Node* next_{nullptr};
     };
     Node* sentinela;
     Node* head;

@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef STRUCTURES_ARRAY_LIST_H
-#define STRUCTURES_ARRAY_LIST_H
+#ifndef TRAFFICJAM_ARRAY_LIST_H
+#define TRAFFICJAM_ARRAY_LIST_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ Exceptions
@@ -126,7 +126,7 @@ class ArrayList {
 };  // Fim da classe ArrayList
 
 template<typename T>
-ArrayList<T>::ArrayList() {	 	  	 	     	    		     		      	   	 	
+ArrayList<T>::ArrayList() {
     ArrayList(DEFAULT_MAX);
 }
 

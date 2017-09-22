@@ -1,24 +1,33 @@
 // Copyright David Grunheidt 2017
-#ifndef PISTA_H
-#define PISTA_H
+#ifndef TRAFFICJAM_PISTA_H
+#define TRAFFICJAM_PISTA_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ Exceptions
-#include "./LinkedQueue.h"
-#include "./ArrayList.h"
+#include "./Carro.h"  // Class Carro
+#include "./LinkedQueue.h"  // LinkedQueue structure
+#include "./ArrayList.h"  // ArrayList structure
+
 class Pista {
  public:
+
+	Pista();
+	Pista(std::string trackName, int velocidade, int tamanho);
     void pushCar();
-    void pushCar(Carros car);
-    Carros popCar();
+    void pushCar(Carro car);
+    Carro popCar();
     bool fullTrack();
     void setOutWays(Pista left,Pista straight , Pista right );
-    ArrayList getOutWays();
+    structures::ArrayList<Pista> getOutWays();
+
  private:
-    LinkedQueue<Carros> CarList = new LinkedQueue();
-    ArrayList<Pista> OutWays = new ArrayList(3);
+
+    structures::LinkedQueue<Carro> CarList{};
+    structures::ArrayList<Pista> OutWays{3u};
     int tamanho;
     int velocidade;
-}  // Fim do namespace structures.
+    std::string trackName;
+
+};  // Fim da classe pista.
 
 #endif
