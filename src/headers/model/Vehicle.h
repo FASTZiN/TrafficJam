@@ -8,11 +8,12 @@ class Vehicle {
 public:
 
 	Vehicle();
-	int getTamanho();
-	void setVelocidade(int velocity);
-	void generateDirection(structures::ArrayList<Vehicle> out_ways,
-			structures::ArrayList<int> directions_possibilities);
+	int getSize();
+	void setVelocity(int velocity);
+	void generateDirection(structures::ArrayList<Vehicle> out_ways,structures::ArrayList<int> directions_possibilities);
 	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right, 3 = stop}
+	int getSize();
+	int getPosition();
 
 private:
 

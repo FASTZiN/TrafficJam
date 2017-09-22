@@ -5,10 +5,11 @@
 #include "./Vehicle.h"  //  Vehicle Class
 #include "./SemaphoresManager.h"  //  SemaphoreManager Class
 
-class TrackManager {
+class TracksManager {
 
 public:
 
+	TracksManager();
 	void createTrack(int type, std::string track_name, int velocity, int size);
 	void SwitchTrack(Vehicle vehicle,Track track_out, Track track_in);
 	void VehicleIsBorn(Vehicle vehicle, Track track_in);

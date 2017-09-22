@@ -13,15 +13,15 @@ public:
 	void setPossibilities(int left, int straight, int right);
 	void setTrackIn(Track track_in);
 	void setTracksOut(Track left,Track straight , Track right);
-	void setTrackIn(Track track_in);
 	void setState(int state);
-	void changeState();
+	void setNextState();
 	structures::ArrayList<Track> getTracksOut();
 	structures::ArrayList<Track> getDirectionsPossibilities();
 	int getState();
 	int getGreenTime();
 	int getYellowTime();
 	int getRedTime();
+	std::string getName();
 
 private:
 

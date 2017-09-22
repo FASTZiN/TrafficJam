@@ -16,9 +16,10 @@ public:
 	void pushCar(Vehicle car);
 	Vehicle popCar();
 	bool fullTrack();
-	void setSemaphore(Semaphore semaphore);
+	void setSem(Semaphore semaphore);
 	void setOutWays(structures::ArrayList<Track> out_ways);
 	structures::ArrayList<Track> getOutWays();
+	std::string getName();
 
 private:
 
