@@ -1,16 +1,18 @@
 #ifndef HEADERS_CLOCK_H_
 #define HEADERS_CLOCK_H_
 
-#include "./Clock.h"
+
 #include <cstdint>
 #include <stdexcept>
 #include <chrono>
+#include "./SemaphoresManager.h"
+#include "./TracksManager.h"
 
 class Clock{
  public:
 	Clock();
 	~Clock();
-	void carArrivel();
+	void vehicleArrivel();
 	void semaphoreChange();
 	void changeTrack();
 	void semaphoreArrivel();

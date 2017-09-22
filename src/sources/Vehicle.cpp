@@ -1,10 +1,15 @@
 #include "./Vehicle.h"
 
 Vehicle::Vehicle() {
-size = DEFAULT_SIZE;
+size = 0;
 velocity = 0;
-direction = 1;
-position = 0
+position = 0;
+}
+
+Vehicle::Vehicle(int size, int velocity, int position) {
+	this->size = size;
+	this->velocity = velocity;
+	this->position = position;
 }
 
 void Vehicle::setSize() {
@@ -24,9 +29,9 @@ void Vehicle::setVelocity(int velocity_) {
  *    PROB[2] = 10 - 30% DE CHANCE
  *
  */
-void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities) {
+void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities, int position) {
 	srand(time(0));
-	int direcao = ((rand()%9)+1; // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1)
+	int direcao = ((rand()%9)+1); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1)
 
 	if(direcao <= directions_possibilities.at(0)){ //  Verifica se eh menor ao probabilidade de virar a esquerda.
 		direction = 0;
@@ -38,6 +43,7 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 			direction = 2;
 		}
 	}
+}
 
 int Vehicle::getDirection() {
 	return direction;
@@ -47,6 +53,10 @@ return size;
 }
 
 int Vehicle::getPosition() {
+}
+
+void Vehicle::setDirectionStop() {
+	direction = 3;
 }
 
 

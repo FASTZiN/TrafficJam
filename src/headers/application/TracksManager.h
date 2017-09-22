@@ -11,10 +11,10 @@ public:
 
 	TracksManager();
 	void createTrack(int type, std::string track_name, int velocity, int size);
-	void SwitchTrack(Vehicle vehicle,Track track_out, Track track_in);
-	void VehicleIsBorn(Vehicle vehicle, Track track_in);
-	void VehicleDies(Vehicle vehicle, Track actual_track);
-	void putSemaphoreOnTrack(Track track, Semaphore semaphore);
+	void SwitchTrack(std::string track_out, std::string track_in);
+	void VehicleIsBorn(std::string name);
+	void VehicleDies(std::string name);
+	void putSemaphoreOnTrack(std::string name, Semaphore semaphore);
 	Track getSpecificTrack(std::string name);
 
 private:

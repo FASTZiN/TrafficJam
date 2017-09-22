@@ -73,3 +73,12 @@ structures::ArrayList<Track> Track::getOutWays() {
 std::string Track::getName() {
 	return track_name;
 }
+
+int Track::getVelocity() {
+	return velocity;
+}
+
+int Track::getSize() {
+	return size;
+}
+

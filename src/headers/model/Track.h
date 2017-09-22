@@ -21,6 +21,8 @@ public:
 	void setOutWays(structures::ArrayList<Track> out_ways);
 	structures::ArrayList<Track> getOutWays();
 	std::string getName();
+	int getVelocity();
+	int getSize();
 
 private:
 
