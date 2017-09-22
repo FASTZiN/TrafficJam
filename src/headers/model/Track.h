@@ -12,9 +12,9 @@ public:
 
 	Track();
 	Track(int type, std::string track_name, int velocity, int size);
-	void pushCar();
-	void pushCar(Vehicle car);
-	Vehicle popCar();
+	void pushVehicle();
+	void pushVehicle(Vehicle Vehicle);
+	Vehicle popVehicle();
 	bool fullTrack();
 	void setSem(Semaphore semaphore);
 	void setOutWays(structures::ArrayList<Track> out_ways);
@@ -23,11 +23,12 @@ public:
 
 private:
 
-	structures::LinkedQueue<Vehicle> car_list { };
-	structures::ArrayList<Track> out_ways { out_ways_number };
 	int size, velocity, out_ways_number;
+	structures::LinkedQueue<Vehicle> Vehicle_list { };
+	structures::ArrayList<Track> out_ways { out_ways_number };
 	std::string track_name;
 	Semaphore semaphore;
+	int defineOutWaysNumber(int type);
 
 };
 // Fim da classe track.
