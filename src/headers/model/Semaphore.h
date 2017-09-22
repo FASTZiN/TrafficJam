@@ -1,6 +1,7 @@
 #ifndef MODEL_SEMAPHORE_H_
 #define MODEL_SEMAPHORE_H_
 
+#include <stdexcept>  // C++ Exceptions
 #include "./LinkedQueue.h"
 #include "./Track.h"
 #include "./ArrayList.h"
@@ -16,7 +17,7 @@ public:
 	void setState(int state);
 	void setNextState();
 	structures::ArrayList<Track> getTracksOut();
-	structures::ArrayList<Track> getDirectionsPossibilities();
+	structures::ArrayList<int> getDirectionsPossibilities();
 	int getState();
 	int getGreenTime();
 	int getYellowTime();

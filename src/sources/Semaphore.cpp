@@ -31,7 +31,7 @@ structures::ArrayList<Track> Semaphore::getTracksOut() {
 
 }
 
-structures::ArrayList<Track> Semaphore::getDirectionsPossibilities() {
+structures::ArrayList<int> Semaphore::getDirectionsPossibilities() {
 
 }
 
