@@ -2,6 +2,7 @@
 #ifndef MODEL_TRACK_H
 #define MODEL_TRACK_H
 
+#include <stdexcept>  // C++ Exceptions
 #include "./Vehicle.h"  //  Vehicle Class
 #include "./LinkedQueue.h"  //  LinkedQueue structure
 #include "./ArrayList.h"  //  ArrayList structure
@@ -12,9 +13,9 @@ public:
 
 	Track();
 	Track(int type, std::string track_name, int velocity, int size);
-	void pushCar();
-	void pushCar(Vehicle car);
-	Vehicle popCar();
+	void pushVehicle();
+	void pushVehicle(Vehicle vehicle);
+	Vehicle popVehicle();
 	bool fullTrack();
 	void setSem(Semaphore semaphore);
 	void setOutWays(structures::ArrayList<Track> out_ways);
@@ -23,13 +24,11 @@ public:
 
 private:
 
-	structures::LinkedQueue<Vehicle> car_list { };
-	structures::ArrayList<Track> out_ways { out_ways_number };
-	int size, velocity, out_ways_number;
+	int size, velocity;
+	structures::LinkedQueue<Vehicle> vehicle_list { };
+	structures::ArrayList<Track> out_ways;
 	std::string track_name;
 	Semaphore semaphore;
 
 };
 // Fim da classe track.
-
-#endif
