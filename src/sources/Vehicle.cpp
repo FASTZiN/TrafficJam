@@ -12,7 +12,7 @@ void Vehicle::setVelocity(int velocity) {
 
 }
 
-void Vehicle::generateDirection(structures::ArrayList<Vehicle> out_ways,structures::ArrayList<int> directions_possibilities) {
+void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities) {
 
 
 }
