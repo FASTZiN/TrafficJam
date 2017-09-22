@@ -15,6 +15,7 @@ void Vehicle::setSize() {
 void Vehicle::setVelocity(int velocity_) {
 	velocity = velocity_;
 }
+
 /*
  * LEMBRENTE: QUANDO CRIAR A VETOR DE PROBILIDADE:
  *  EX:
@@ -37,8 +38,6 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 			direction = 2;
 		}
 	}
-
-}
 
 int Vehicle::getDirection() {
 	return direction;

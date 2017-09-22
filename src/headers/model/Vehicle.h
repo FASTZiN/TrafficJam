@@ -2,6 +2,7 @@
 #ifndef MODEL_VEHICLE_H
 #define MODEL_VEHICLE_H
 
+#include <stdexcept>  // C++ Exceptions
 #include "./ArrayList.h"  // ArrayList structure
 #include <stdio.h>
 #include <conio.h>
@@ -17,6 +18,7 @@ public:
 	void generateDirection(structures::ArrayList<int> directions_possibilities);
 	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right, 3 = stop}
 	int getSize();
+	void setPosition(int position);
 	int getPosition();
 
 private:
