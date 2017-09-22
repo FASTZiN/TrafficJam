@@ -3,6 +3,7 @@
 
 #include "./LinkedQueue.h"
 #include "./Track.h"
+#include "./ArrayList.h"
 
 class Semaphore {
 public:

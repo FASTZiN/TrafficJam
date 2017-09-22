@@ -24,36 +24,4 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/library/ArrayList.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/ArrayList.h</locationURI>
-		</link>
-		<link>
-			<name>src/library/CircularList.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/CircularList.h</locationURI>
-		</link>
-		<link>
-			<name>src/library/LinkedList.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/LinkedList.h</locationURI>
-		</link>
-		<link>
-			<name>src/library/LinkedQueue.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/LinkedQueue.h</locationURI>
-		</link>
-		<link>
-			<name>src/headers/model/Track.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/Track.h</locationURI>
-		</link>
-		<link>
-			<name>src/headers/model/Vehicle.h</name>
-			<type>1</type>
-			<locationURI>PARENT-3-WORKSPACE_LOC/git/TrafficJam/VPL%20de%20Familiarizac%C3%A3o%20com%20a%20Plataforma/Vehicle.h</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
