@@ -1,7 +1,7 @@
 //  Copyright [2017] <Caio Cardoso>
 
-#ifndef TRAFFICJAM_CIRCULAR_LIST_H
-#define TRAFFICJAM_CIRCULAR_LIST_H
+#ifndef LIBRARY_CIRCULAR_LIST_H
+#define LIBRARY_CIRCULAR_LIST_H
 
 #include <cstdint>
 #include <stdexcept>

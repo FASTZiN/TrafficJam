@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef TRAFFICJAM_LINKED_QUEUE_H
-#define TRAFFICJAM_LINKED_QUEUE_H
+#ifndef LIBRARY_LINKED_QUEUE_H
+#define LIBRARY_LINKED_QUEUE_H
 
 #include "./LinkedList.h"  // Classe a ser herdada (Pilha herda lista)
 

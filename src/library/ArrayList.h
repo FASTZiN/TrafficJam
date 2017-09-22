@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef TRAFFICJAM_ARRAY_LIST_H
-#define TRAFFICJAM_ARRAY_LIST_H
+#ifndef LIBRARY_ARRAY_LIST_H
+#define LIBRARY_ARRAY_LIST_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ Exceptions
