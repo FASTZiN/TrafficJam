@@ -23,4 +23,3 @@ Clock::Clock(string function_, int timer_){
  void Clock::semaphoreArrivel(){
 
   }
-

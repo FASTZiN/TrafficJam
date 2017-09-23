@@ -1,4 +1,4 @@
-// Copyright David Grunheidt 2017
+tr// Copyright David Grunheidt 2017
 #ifndef MODEL_VEHICLE_H
 #define MODEL_VEHICLE_H
 
@@ -13,17 +13,18 @@ class Vehicle {
 public:
 
 	Vehicle();
+	Vehicle(int size, int velocity, int position);
 	void setSize();
 	void setVelocity(int velocity);
 	void generateDirection(structures::ArrayList<int> directions_possibilities);
-	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right}
+	void setDirectionStop();
+	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right, 3 = stop}
 	int getSize();
 	void setPosition(int position);
 	int getPosition();
 
 private:
 
-	static const auto DEFAULT_SIZE = 3u;
 	int size, velocity, position, direction = 1;
 
 };
