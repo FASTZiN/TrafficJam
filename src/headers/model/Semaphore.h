@@ -22,11 +22,12 @@ public:
 	int getGreenTime();
 	int getYellowTime();
 	int getRedTime();
+	int getPoiting();
 	std::string getName();
 
 private:
 
-	int actual_state, green_time, red_time;
+	int actual_state, green_time, red_time, poiting;   // Poiting -> 0 = norte, 1 = oeste, 2 = sul, 3 = leste
 	Track track_in;
 	structures::ArrayList<int> directions_possibilities{3u}, tracks_out{3u};
 	std::string name;

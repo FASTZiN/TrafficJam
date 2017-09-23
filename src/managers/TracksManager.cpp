@@ -2,7 +2,7 @@
 
 TracksManager::TracksManager() {
 	all_tracks = new structures::LinkedList<Track>();
-	structures::LinkedList<Track> = NULL;
+	semaphore_manager = NULL;
 }
 
 void TracksManager::createTrack(int type, std::string track_name, int velocity, int size) {

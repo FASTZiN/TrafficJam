@@ -1,4 +1,5 @@
 #include "./Track.h"  //  Track Class
+#include "./Semaphore.h"
 
 Track::Track() {
 	track_name = NULL;
@@ -53,8 +54,8 @@ bool Track::fullTrack() {
 	return vehicle_list.size() == size;
 }
 
-void Track::setSem(Semaphore semaphore) {
-	this->semaphore = semaphore;
+void Track::setSem(Semaphore semaphor) {
+	semaphore = semaphor;
 }
 
 void Track::setOutWays(structures::ArrayList<Track> out_ways) {

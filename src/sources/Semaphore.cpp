@@ -55,3 +55,7 @@ std::string Semaphore::getName() {
 
 }
 
+int Semaphore::getPoiting() {
+	return poiting;
+}
+
