@@ -16,7 +16,7 @@ public:
 	Vehicle(int size, int velocity, int position);
 	void setSize();
 	void setVelocity(int velocity);
-	void generateDirection(structures::ArrayList<int> directions_possibilities, int position);
+	void generateDirection(structures::ArrayList<int> directions_possibilities);
 	void setDirectionStop();
 	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right, 3 = stop}
 	int getSize();
