@@ -1,12 +1,12 @@
 // Copyright David Grunheidt 2017
-#ifndef MODEL_TRACK_H
-#define MODEL_TRACK_H
+#ifndef TRAFFICJAM_TRACK_H
+#define TRAFFICJAM_TRACK_H
 
 #include <stdexcept>  // C++ Exceptions
-#include "./Vehicle.h"  //  Vehicle Class
-#include "./LinkedQueue.h"  //  LinkedQueue structure
-#include "./ArrayList.h"  //  ArrayList structure
-#include "./Semaphore.h"  //  Semaphore Class
+#include "../headers/model/Vehicle.h"  //  Vehicle Class
+#include "../library/LinkedQueue.h"  //  LinkedQueue structure
+#include "../library/ArrayList.h"  //  ArrayList structure
+#include "../headers/model/Semaphore.h"  //  Semaphore Class
 
 class Track {
 public:
@@ -52,17 +52,21 @@ public:
 
     /*!
     * Seta um semaforo na pista
+    * Dentro do metodo também é setado as possibilidades de direção diretamente na lista de semaforos no semaphorosmanager
+    * Também é setado os tracks diretamente na lista de semaforos no semaphorosmanager
+    * Isso só é possivel porque é passado como argumento o endereço  para um semaforo
     */
-	void setSemaphore(Semaphore &semaphore);
+	void setSemaphore(Semaphore &semaphore, int left, int straight, int right);
 
     /*!
     * Define as pistas de saida da presente pista
     * Só é usado para pistas que não forem sumidouras
     */
-	void setOutWays(structures::ArrayList<Track> out_ways);
+	void setOutWays(Track left,Track straight , Track right);
 
     /*!
     * Retorna as pistas de saida da presente pista
+    * Indice 1 = left, indice 2 = straight, indice 3 = right
     */
 	structures::ArrayList<Track> getOutWays();
 
@@ -97,8 +101,8 @@ public:
 private:
 
 	int size, velocity;
-	structures::LinkedQueue<Vehicle> vehicle_list { };
-	structures::ArrayList<Track> out_ways;
+	structures::LinkedQueue<Vehicle> vehicle_list{};
+	structures::ArrayList<Track> out_ways{3};
 	std::string track_name;
 	Semaphore *semaphore;
 

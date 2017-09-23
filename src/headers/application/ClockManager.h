@@ -1,14 +1,9 @@
-/*
- * ClockManager.h
- *
- *  Created on: 22/09/2017
- *      Author: fastzin
- */
+#ifndef TRAFFICJAM_CLOCK_MANAGER_H
+#define TRAFFICJAM_CLOCKMANAGER_H
 
-#ifndef HEADERS_APPLICATION_CLOCKMANAGER_H_
-#define HEADERS_APPLICATION_CLOCKMANAGER_H_
-#include "./Clock.h"
-#include "./LinkedList.h"
+#include "../headers/model/Clock.h"
+#include "../headers/library/LinkedList.h"
+#include "../headers/model/Track.h"
 
 class ClockManager {
 public:
@@ -23,3 +18,4 @@ private:
 	structures::LinkedList<Clock> eventList;
 }
 #endif /* HEADERS_APPLICATION_CLOCKMANAGER_H_ */
+

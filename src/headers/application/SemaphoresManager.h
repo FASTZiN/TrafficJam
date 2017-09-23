@@ -1,7 +1,8 @@
-#ifndef HEADERS_SEMAPHORESMANAGER_H_
-#define HEADERS_SEMAPHORESMANAGER_H_
+#ifndef TRAFFICJAM_SEMAPHORES_MANAGER_H_
+#define TRAFFICJAM_SEMAPHORES_MANAGER_H_
 
-#include "./Semaphore.h"
+#include "../headers/model/Track.h"
+#include "../headers/model/Semaphore.h"
 
 class SemaphoresManager {
 public:
@@ -14,11 +15,9 @@ public:
     /*!
     * Cria um semaforo e define:
     * Seu nome; Os Tempos das luzes verde e vermelho; Que direção controla (N,S,L,O);
-    * A pista que ele controla, as pistas de saida;
-    * A possibilidade de um carro virar em cada pista de saida;
     * Adiciona o semaforo na lista de semaforos
     */
-	void createSemaphore(std::string name, int green_time, int red_time, int pointing, Track track_in, Track left,Track straight , Track right, int left, int straight, int right);
+	void createSemaphore(std::string name, int green_time, int red_time, int pointing);
 
     /*!
     * Muda o estado atual de TODOS os semaforos:

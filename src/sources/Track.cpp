@@ -1,12 +1,11 @@
-#include "./Track.h"  //  Track Class
+#include "../headers/model/Track.h"  //  Track Class
+#include "../headers/model/Semaphore.h"  //  Track Class
 
 Track::Track() {
 	track_name = NULL;
 	size = 0;
 	velocity = 0;
 	semaphore = NULL;
-	out_ways = NULL;
-	vehicle_list = NULL;
 }
 
 Track::Track(std::string track_name, int velocity, int size) {
@@ -14,9 +13,6 @@ Track::Track(std::string track_name, int velocity, int size) {
 	this->size = size;
 	this->velocity = velocity;
 	semaphore = NULL;
-	out_ways = NULL;
-	vehicle_list = NULL;
-
 }
 
 void Track::pushVehicle() {
@@ -47,13 +43,16 @@ bool Track::fullTrack() {
 	return vehicle_list.size() == size;
 }
 
-void Track::setSemaphore(Semaphore semaphore) {
+void Track::setSemaphore(Semaphore &semaphore, int left, int straight, int right) {
 	this->semaphore = semaphore;
+	this->semaphore->setTracks(this->Track, this->out_ways);
+	this->semaphore->setPossibilities(left, straight, right);
 }
 
-void Track::setOutWays(structures::ArrayList<Track> out_ways) {
-	this->out_ways = new structures::ArrayList[out_ways.size()];
-	this->out_ways = out_ways;
+void Track::setOutWays(Track left,Track straight , Track right) {
+	out_ways[0] = left;
+	out_ways[1] = straight;
+	out_ways[2] = right;
 }
 
 structures::ArrayList<Track> Track::getOutWays() {
@@ -80,7 +79,7 @@ void Track::changeVehiclePosition(const Vehicle &vehicle, int position) {
 void Track::changeVehicleDirection(const Vehicle &vehicle) {
 	if (vehicle_list.list.contains(vehicle)) {
 		Vehicle *vehicle_pointer = vehicle;
-		vehicle_pointer->generateDirection(this->semaphore.getDirectionsPossibilities());
+
 	} else {
 		throw std::out_of_range ("This vehicle isn't on this track");
 	}

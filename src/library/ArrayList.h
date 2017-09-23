@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef LIBRARY_ARRAY_LIST_H
-#define LIBRARY_ARRAY_LIST_H
+#ifndef TRAFFICJAM_ARRAY_LIST_H
+#define TRAFFICJAM_ARRAY_LIST_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ Exceptions
@@ -127,7 +127,9 @@ class ArrayList {
 
 template<typename T>
 ArrayList<T>::ArrayList() {
-    ArrayList(DEFAULT_MAX);
+    max_size_ = DEFAULT_MAX;
+    size_ = -1;
+    contents = new T[max_size_];
 }
 
 template<typename T>

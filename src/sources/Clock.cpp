@@ -1,4 +1,4 @@
-#include "./Clock.h"
+#include "../headers/model/Clock.h"
 Clock::Clock(){
 	function = NULL;
 	timer = 0;

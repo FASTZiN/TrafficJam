@@ -1,8 +1,8 @@
-#include "./TracksManager.h"
+#include "../headers/application/TracksManager.h"  //  Track Class
+#include "../headers/model/Track.h"
 
 TracksManager::TracksManager() {
 	all_tracks = new structures::LinkedList<Track>();
-	semaphore_manager = NULL;
 }
 
 void TracksManager::createTrack(std::string track_name, int velocity, int size) {
@@ -23,7 +23,7 @@ void TracksManager::switchTrack(Track &track_out, Track &track_in) {
 void TracksManager::vehicleIsBorn(Track &track) {
 	if (all_tracks.contains(track)) {
 		Track *track_pointer = track;
-		*track_pointer->pushVehicle();
+		track_pointer->pushVehicle();
 	} else {
 		throw std::out_of_range ("This track isn't on your list");
 	}
@@ -32,16 +32,16 @@ void TracksManager::vehicleIsBorn(Track &track) {
 void TracksManager::vehicleDies(Track &track) {
 	if (all_tracks.contains(track)) {
 		Track *track_pointer = track;
-		*track_pointer->popVehicle();
+		track_pointer->popVehicle();
 	} else {
 		throw std::out_of_range ("This track isn't on your list");
 	}
 }
 
-void TracksManager::putSemaphoreOnTrack(Track &track, Semaphore &semaphore) {
+void TracksManager::putSemaphoreOnTrack(Track &track, Semaphore &semaphore, int left, int straight, int right) {
 	if (all_tracks.contains(track)) {
 		Track *track_pointer = track;
-		*track_pointer->setSemaphore(semaphore);
+		track_pointer->setSemaphore(semaphore, left, straight, right);
 	} else {
 		throw std::out_of_range ("This track isn't on your list");
 	}

@@ -1,9 +1,9 @@
 // Copyright David Grunheidt 2017
-#ifndef MODEL_VEHICLE_H
-#define MODEL_VEHICLE_H
+#ifndef TRAFFICJAM_VEHICLE_H
+#define TRAFFICJAM_VEHICLE_H
 
 #include <stdexcept>  // C++ Exceptions
-#include "./ArrayList.h"  // ArrayList structure
+#include "../library/ArrayList.h"  // ArrayList structure
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>// necessário p/ as funções rand() e srand()

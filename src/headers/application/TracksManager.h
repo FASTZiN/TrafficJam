@@ -1,9 +1,9 @@
 
-#ifndef HEADERS_TRACKSMANAGER_H_
-#define HEADERS_TRACKSMANAGER_H_
+#ifndef TRAFFICJAM_TRACKS_MANAGER_H
+#define TRAFFICJAM_TRACKS_MANAGER_H
 
-#include "./Vehicle.h"  //  Vehicle Class
-#include "./SemaphoresManager.h"  //  SemaphoreManager Class
+#include "../headers/model/Vehicle.h"  //  Vehicle Class
+#include "../headers/model/Track.h"
 
 class TracksManager {
 
@@ -47,14 +47,14 @@ public:
     /*!
     * Adiciona um semaforo em uma track especifica
     * Utiliza endereços e ponteiros para simplificar
-    * Realiza a função de adicionar um veiculo diretamente nos objetos da lista
+    * Realiza a função de adicionar um semaforo diretamente nos objetos da lista
     * Assim não é necessario remover e adicionar objetos
     * Também é utilizado um endereço para um semaforo pois:
     * Os semaforos estão em constante mudança de estados no semaphoresmanager.
     * Mais facil ter um pointeiro apontando pra um semaforo
     * Assim não é preciso altera-lo na lista all_tracks qnd ele mudar o estado
     */
-	void putSemaphoreOnTrack(Track &track, Semaphore &semaphore);
+	void putSemaphoreOnTrack(Track &track, Semaphore &semaphore, int left, int straight, int right);
 
     /*!
     * Metodo que sera utilizado pelo clock ou main (ainda nao sabemos)
@@ -67,7 +67,6 @@ public:
 private:
 
 	structures::LinkedList<Track> all_tracks;
-	SemaphoresManager semaphore_manager;
 };
 
 

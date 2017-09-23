@@ -1,11 +1,11 @@
-#ifndef HEADERS_CLOCK_H_
-#define HEADERS_CLOCK_H_
+#ifndef TRAFFICJAM_CLOCK_H
+#define TRAFFICJAM_CLOCK_H
 
 #include <cstdint>
 #include <stdexcept>
 #include <string>
-#include "./SemaphoresManager.h"
-#include "./TracksManager.h"
+#include "../headers/application/SemaphoresManager.h"
+#include "../headers/application/TracksManager.h"
 
 using namespace std;
 class Clock{

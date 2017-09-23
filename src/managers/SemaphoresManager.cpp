@@ -1,15 +1,12 @@
-#include "./SemaphoresManager.h"
+#include "../headers/application/SemaphoresManager.h"
 
 SemaphoresManager::SemaphoresManager() {
 	all_semaphores = new structures::LinkedList<Track>();
-	actual_stage = 4;
+	actual_stage = -1;
 }
 
-void SemaphoresManager::createSemaphore(std::string name, int green_time,int red_time, int pointing, Track track_in, Track left_track, Track straight_track,Track right_track, int left, int straight, int right) {
+void SemaphoresManager::createSemaphore(std::string name, int green_time,int red_time, int pointing) {
 	Semaphore semaphore = new Semaphore(name, green_time, red_time, pointing);
-	semaphore.setTrackIn(track_in);
-	semaphore.setTracksOut(left_track, straight_track, right_track);
-	semaphore.setPossibilities(left, straight, right);
 	all_semaphores.push_back(semaphore);
 }
 
@@ -35,9 +32,8 @@ void SemaphoresManager::changeStage() {
 
 Semaphore& SemaphoresManager::getSpecificSemaphore(std::string name) {
 	for (int i = 0; i < all_semaphores.size(); i++) {
-		Semaphore *semaphore = all_semaphores.at(i);
-		if (semaphore->getName() == name) {
-			return semaphore;
+		if (all_semaphores.at(i).getName() == name) {
+			return all_semaphores.at(i);
 			break;
 		}
 	}

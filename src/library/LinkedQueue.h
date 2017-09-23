@@ -1,8 +1,8 @@
 // Copyright David Grunheidt 2017
-#ifndef LIBRARY_LINKED_QUEUE_H
-#define LIBRARY_LINKED_QUEUE_H
+#ifndef TRAFFICJAM_LINKED_QUEUE_H
+#define TRAFFICJAM_LINKED_QUEUE_H
 
-#include "./LinkedList.h"  // Classe a ser herdada (Pilha herda lista)
+#include "../library/LinkedList.h"  // Classe a ser herdada (Pilha herda lista)
 
 namespace structures {
 

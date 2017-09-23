@@ -5,7 +5,7 @@
  *      Author: fastzin
  */
 
-#include "./ClockManager.h"
+#include "../headers/application/ClockManager.h"
 ClockManager::ClockManager(){
 	eventList = NULL;
 }

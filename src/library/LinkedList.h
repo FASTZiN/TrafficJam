@@ -1,6 +1,6 @@
 // Copyright David Grunheidt 2017
-#ifndef LIBRARY_LINKED_LIST_H
-#define LIBRARY_LINKED_LIST_H
+#ifndef TRAFFICJAM_LINKED_LIST_H
+#define TRAFFICJAM_LINKED_LIST_H
 
 #include <cstdint>  // std::size_t
 #include <stdexcept>  // C++ exceptions
