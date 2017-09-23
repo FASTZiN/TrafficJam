@@ -4,18 +4,22 @@
 #include "./Clock.h"
 #include <cstdint>
 #include <stdexcept>
-#include <chrono>
+#include <string>
 
+
+using namespace std;
 class Clock{
  public:
 	Clock();
-	~Clock();
-	void carArrivel();
+	Clock(string function, int timer);
+	void carArrivel(Track track);
 	void semaphoreChange();
-	void changeTrack();
+	void changeTrack(Vehicle Car, Track out, Track in);
 	void semaphoreArrivel();
  private:
-	auto time;
-
+  SemaphoresManager controller;
+  TracksManager control;
+  string function;
+  int timer;
 };
 #endif

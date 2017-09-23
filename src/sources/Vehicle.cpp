@@ -26,7 +26,7 @@ void Vehicle::setVelocity(int velocity_) {
  */
 void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities) {
 	srand(time(0));
-	int direcao = ((rand()%9)+1; // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1)
+	int direcao = 1 + ( rand() % 10 ); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1).
 
 	if(direcao <= directions_possibilities.at(0)){ //  Verifica se eh menor ao probabilidade de virar a esquerda.
 		direction = 0;
@@ -38,6 +38,7 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 			direction = 2;
 		}
 	}
+}
 
 int Vehicle::getDirection() {
 	return direction;
