@@ -16,7 +16,7 @@ public:
 	void setSize();
 	void setVelocity(int velocity);
 	void generateDirection(structures::ArrayList<int> directions_possibilities);
-	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right, 3 = stop}
+	int getDirection(); // Direction -> { 0 = left, 1 = straight, 2 = right}
 	int getSize();
 	void setPosition(int position);
 	int getPosition();
