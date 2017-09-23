@@ -4,7 +4,7 @@ Semaphore::Semaphore() {
 
 }
 
-Semaphore::Semaphore(std::string name, int green_time, int red_time) {
+Semaphore::Semaphore(std::string name, int green_time, int red_time, int Pointing) {
 
 }
 
@@ -20,10 +20,6 @@ void Semaphore::setTracksOut(Track left,Track straight , Track right) {
 }
 
 void Semaphore::setState(int state) {
-
-}
-
-void Semaphore::setNextState() {
 
 }
 
@@ -55,7 +51,7 @@ std::string Semaphore::getName() {
 
 }
 
-int Semaphore::getPoiting() {
-	return poiting;
+int Semaphore::getPointing() {
+	return pointing;
 }
 
