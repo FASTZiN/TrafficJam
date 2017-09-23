@@ -10,15 +10,16 @@
 #include "./Clock.h"
 #include "./LinkedList.h"
 
-class ClockManager{
- public:
-void changeSemaphore(int timer);
+class ClockManager {
+public:
 
-void carArrival(Track o1l, Track n1s, Track s1n, Track n2s, Track s2n, Track l1o, int timer);
+	ClockManager();
+	void changeSemaphore(int timer);
+	void vehicleArrival(Track &o1l, Track &n1s, Track &s1n, Track &n2s, Track &s2n, Track &l1o, int timer);
+	structures::LinkedList eventsList();
 
-structures::LinkedList eventsList();
 private:
- Clock clock;
- structures::LinkedList<Clock> eventList;
+	Clock clock;
+	structures::LinkedList<Clock> eventList;
 }
 #endif /* HEADERS_APPLICATION_CLOCKMANAGER_H_ */

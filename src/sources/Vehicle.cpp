@@ -1,20 +1,15 @@
 #include "./Vehicle.h"
 
 Vehicle::Vehicle() {
-size = 0;
-velocity = 0;
-position = 0;
-}
-
-Vehicle::Vehicle(int size, int velocity, int position) {
-	this->size = size;
-	this->velocity = velocity;
-	this->position = position;
+	size = 0;
+	this->setSize();
+	velocity = 0;
+	position = 0;
 }
 
 void Vehicle::setSize() {
-		  srand(time(0));
-	      size = ((rand()%(4)) + 2)+3; // Gera um randomico entre 3 e 6 e adiciona os 3 metros padrao.
+	srand(time(0));
+	size = ((rand() % (4)) + 2) + 3; // Gera um randomico entre 3 e 6 e adiciona os 3 metros padrao.
 }
 
 void Vehicle::setVelocity(int velocity_) {
@@ -31,11 +26,11 @@ void Vehicle::setVelocity(int velocity_) {
  */
 void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities) {
 	srand(time(0));
-	int direcao = 1 + ( rand() % 10 ); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1).
-	if(direcao <= directions_possibilities.at(0)){ //  Verifica se eh menor ao probabilidade de virar a esquerda.
+	int direcao = 1 + (rand() % 10); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1).
+	if (direcao <= directions_possibilities.at(0)) { //  Verifica se eh menor ao probabilidade de virar a esquerda.
 		direction = 0;
 	} else {
-		if(direcao <= directions_possibilities.at(1)){  //  Verifica se eh menor ao probabilidade de seguir reto
+		if (direcao <= directions_possibilities.at(1)) { //  Verifica se eh menor ao probabilidade de seguir reto
 			direction = 1;
 		} else {  //  Se nenhuma das anteriores for verdade, ele vira a direita
 			direction = 2;
@@ -43,18 +38,19 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 	}
 }
 
+void Vehicle::setPosition(int position) {
+	this->position = position;
+}
+
 int Vehicle::getDirection() {
 	return direction;
 }
 int Vehicle::getSize() {
-return size;
+	return size;
 }
 
 int Vehicle::getPosition() {
-}
-
-void Vehicle::setDirectionStop() {
-	direction = 3;
+	return position;
 }
 
 

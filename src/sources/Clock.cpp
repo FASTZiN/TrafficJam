@@ -8,16 +8,16 @@ Clock::Clock(string function_, int timer_){
 	function = function_;
 	timer = timer_;
 }
- void Clock::carArrivel(Track track){
-	 track.pushVehicle();
+ void Clock::vehicleArrivel(Track &track){
+	 control.vehicleIsBorn(track);
  }
 
  void Clock::semaphoreChange(){
-	 controller.changeState();
+	 controller.changeStage();
   }
 
- void Clock::changeTrack(Vehicle Car, Track out, Track in){
-	 control.SwitchTrack(Vehicle vehicle, Track out, Track in);
+ void Clock::changeTrack(Track &track_out, Track &track_in){
+	 control.switchTrack(track_out, track_in);
   }
 
  void Clock::semaphoreArrivel(){

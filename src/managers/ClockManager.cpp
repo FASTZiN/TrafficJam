@@ -18,29 +18,29 @@ void ClockManager::changeSemaphore(int timer){
 	}
 }
 
-void ClockManager::carArrival(Track o1l, Track n1s, Track s1n, Track n2s, Track s2n, Track l1o, int timer){
+void ClockManager::vehicleArrival(Track &o1l, Track &n1s, Track &s1n, Track &n2s, Track &s2n, Track &l1o, int timer){
 	if(timer == 0){
-		clock.carArrivel(o1l);
-		clock.carArrivel(n1s);
-		clock.carArrivel(s1n);
-		clock.carArrivel(s2n);
-		clock.carArrivel(n2s);
-		clock.carArrivel(l1o);
+		clock.vehicleArrivel(o1l);
+		clock.vehicleArrivel(n1s);
+		clock.vehicleArrivel(s1n);
+		clock.vehicleArrivel(s2n);
+		clock.vehicleArrivel(n2s);
+		clock.vehicleArrivel(l1o);
 		Clock clockEvent = new Clock("carArrivel", timer);
 		eventList.push_back(clockEvent);
 	} else {
 	if (timer % 10 == 0) {
-		clock.carArrivel(o1l);
-		clock.carArrivel(l1o);
+		clock.vehicleArrivel(o1l);
+		clock.vehicleArrivel(l1o);
 		Clock clockEvent = new Clock("carArrivel", timer);
 		eventList.push_back(clockEvent);
 	} else if (timer % 20 == 0) {
-		clock.carArrivel(n1s);
-		clock.carArrivel(n2s);
+		clock.vehicleArrivel(n1s);
+		clock.vehicleArrivel(n2s);
 	} else if (timer % 30 == 0) {
-		clock.carArrivel(s1n);
+		clock.vehicleArrivel(s1n);
 	} else if (timer % 60 == 0) {
-		clock.carArrivel(s2n);
+		clock.vehicleArrivel(s2n);
 	}
   }
 }

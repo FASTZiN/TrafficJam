@@ -9,7 +9,7 @@ Track::Track() {
 	vehicle_list = NULL;
 }
 
-Track::Track(int type, std::string track_name, int velocity, int size) {
+Track::Track(std::string track_name, int velocity, int size) {
 	this->track_name = track_name;
 	this->size = size;
 	this->velocity = velocity;
@@ -18,16 +18,10 @@ Track::Track(int type, std::string track_name, int velocity, int size) {
 	vehicle_list = NULL;
 
 }
+
 void Track::pushVehicle() {
 	Vehicle vehicle = new Vehicle();
-	if (!(fullTrack()) || !(vehicle_list.back().position + vehicle.size > size)) {
-		vehicle.setPosition(size);
-		vehicle.setVelocity(velocity);
-		vehicle_list.enqueue(vehicle);
-	} else {
-		throw std::out_of_range("This track is full, can't add a new vehicle");
-	}
-
+	this->pushVehicle(vehicle);
 }
 
 void Track::pushVehicle(Vehicle vehicle) {
@@ -53,7 +47,7 @@ bool Track::fullTrack() {
 	return vehicle_list.size() == size;
 }
 
-void Track::setSem(Semaphore semaphore) {
+void Track::setSemaphore(Semaphore semaphore) {
 	this->semaphore = semaphore;
 }
 
@@ -66,7 +60,7 @@ structures::ArrayList<Track> Track::getOutWays() {
 	if (!out_ways == NULL) {
 		return out_ways;
 	} else {
-		throw std::out_of_range ("This track is END-LINE");
+		throw std::out_of_range("This track is END-LINE");
 	}
 }
 
@@ -74,11 +68,33 @@ std::string Track::getName() {
 	return track_name;
 }
 
-int Track::getVelocity() {
-	return velocity;
+void Track::changeVehiclePosition(const Vehicle &vehicle, int position) {
+	if (vehicle_list.list.contains(vehicle)) {
+		Vehicle *vehicle_pointer = vehicle;
+		vehicle_pointer->setPosition(position);
+	} else {
+		throw std::out_of_range ("This vehicle isn't on this track");
+	}
 }
 
-int Track::getSize() {
-	return size;
+void Track::changeVehicleDirection(const Vehicle &vehicle) {
+	if (vehicle_list.list.contains(vehicle)) {
+		Vehicle *vehicle_pointer = vehicle;
+		vehicle_pointer->generateDirection(this->semaphore.getDirectionsPossibilities());
+	} else {
+		throw std::out_of_range ("This vehicle isn't on this track");
+	}
 }
 
+void Track::changeVehicleVelocity(const Vehicle &vehicle) {
+	if (vehicle_list.list.contains(vehicle)) {
+		Vehicle *vehicle_pointer = vehicle;
+		vehicle_pointer->setVelocity(this->velocity);
+	} else {
+		throw std::out_of_range ("This vehicle isn't on this track");
+	}
+}
+
+Vehicle& Track::vehicleAt(int index) {
+	return vehicle_list.list.at(index);
+}

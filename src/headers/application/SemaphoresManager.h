@@ -6,17 +6,57 @@
 class SemaphoresManager {
 public:
 
-	SemaphoresManager();  //  Construtor do Gerenciador de Semaforos
+    /*!
+    * Construtor padrão do gerenciador de semaforos (necessario para inicializar no main)
+    */
+	SemaphoresManager();
+
+    /*!
+    * Cria um semaforo e define:
+    * Seu nome; Os Tempos das luzes verde e vermelho; Que direção controla (N,S,L,O);
+    * A pista que ele controla, as pistas de saida;
+    * A possibilidade de um carro virar em cada pista de saida;
+    * Adiciona o semaforo na lista de semaforos
+    */
 	void createSemaphore(std::string name, int green_time, int red_time, int pointing, Track track_in, Track left,Track straight , Track right, int left, int straight, int right);
-	void changeState();
-	Semaphore getSpecificSemaphore(std::string name);
+
+    /*!
+    * Muda o estado atual de TODOS os semaforos:
+    * Estado 0: Todos que controlam as ruas da parte NORTE aberto e o resto fechados
+    * Estado 1: Todos que controlam as ruas da parte OESTE aberto e o resto fechados
+    * Estado 2: Todos que controlam as ruas da parte SUL aberto e o resto fechados
+    * Estado 3: Todos que controlam as ruas da parte LESTE aberto e o resto fechados
+    * Estado 4: Todos os semaforos fechados
+    */
+	void changeStage();
+
+    /*!
+    * Incrementa em uma unidade o atributo actual_stage
+    * (SERA NECESSARIO UM LISTENER BASEADO NA LISTA DE EVENTOS PARA CHAMAR ESTA FUNCAO)
+    * (SERÁ NECESSARIO TAMBEM UM LISTENER PARA MUDANÇA DE VALOR DO ACTUAL STAGE)
+    * (ESTE LISTENER ENTAO CHAMA A FUNCAO QUE MUDA AS LUZES DO SEMAFORO)
+    */
 	void nextStage();
+
+    /*!
+    * Retorna o valor atual do actual_stage
+    * Sera necessario na implementação do listener
+    */
 	int getActualStage();
+
+    /*!
+    * Retorna o endereço de um semaforo especifico (Caso exista)
+    * É de grande importancia no TracksManager, visto que:
+    * Uma track possui um ponteiro pra um semaforo
+    * Assim quando ele mudar, não é necessario alterar a variavel ponteiro em uma track.
+    * Nem alterar a lista de todas as tracks no TracksManager, ou seja, simplifica!
+    */
+	Semaphore& getSpecificSemaphore(std::string name);
 
 private:
 
-	structures::LinkedList<Track> all_semaphores;
-	int actual_stage;  //  All { 0 = North Open, 1 = East Open, 2 == South Open, 3 == Least Open } Rest = Close, Others ==  All Close;
+	structures::LinkedList<Semaphore> all_semaphores;
+	int actual_stage;
 	void openPointersSem(int pointing);
 };
 
