@@ -2,7 +2,6 @@
 #define TRAFFICJAM_CLOCKMANAGER_H
 
 #include "../headers/model/Clock.h"
-#include "../headers/library/LinkedList.h"
 #include "../headers/model/Track.h"
 
 class ClockManager {
@@ -16,6 +15,6 @@ public:
 private:
 	Clock clock;
 	structures::LinkedList<Clock> eventList;
-}
+};
 #endif /* HEADERS_APPLICATION_CLOCKMANAGER_H_ */
 
