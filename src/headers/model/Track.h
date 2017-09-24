@@ -12,7 +12,7 @@ class Track {
 public:
 
     /*!
-    * Construtor padrão da track.
+    * Construtor padrï¿½o da track.
     * Seta size, velocity = 0 e o resto = NULL
     */
 	Track();
@@ -26,13 +26,13 @@ public:
 
     /*!
     * Cria um veiculo em pistas fontes (tamanho randomico)
-    * Chama a função PushVehicle com argumentos (reutilização de codigo) e passa o veiculo como argumento
+    * Chama a funï¿½ï¿½o PushVehicle com argumentos (reutilizaï¿½ï¿½o de codigo) e passa o veiculo como argumento
     */
 	void pushVehicle();
 
     /*!
-    * Função utilizada p adicionar um veiculo quando este for trocar de pista
-    * Verifica se a posição do ultimo veiculo + o tamanho do veiculo atual é maior que o tamanho da pista
+    * Funï¿½ï¿½o utilizada p adicionar um veiculo quando este for trocar de pista
+    * Verifica se a posiï¿½ï¿½o do ultimo veiculo + o tamanho do veiculo atual ï¿½ maior que o tamanho da pista
     * Verifica se a pista esta cheia.
     * Caso os dois sejam falsos:(Seta posicao = tamanho da pista e vel = vel da pista)
     * Adiciona o veiculo na lista de veiculos
@@ -41,7 +41,7 @@ public:
 
     /*!
     * Retira o primeiro veiculo da pista
-    * Só é usado quando um veiculo for deletado ou quando for trocar de pistas
+    * Sï¿½ ï¿½ usado quando um veiculo for deletado ou quando for trocar de pistas
     */
 	Vehicle popVehicle();
 
@@ -52,15 +52,15 @@ public:
 
     /*!
     * Seta um semaforo na pista
-    * Dentro do metodo também é setado as possibilidades de direção diretamente na lista de semaforos no semaphorosmanager
-    * Também é setado os tracks diretamente na lista de semaforos no semaphorosmanager
-    * Isso só é possivel porque é passado como argumento o endereço  para um semaforo
+    * Dentro do metodo tambï¿½m ï¿½ setado as possibilidades de direï¿½ï¿½o diretamente na lista de semaforos no semaphorosmanager
+    * Tambï¿½m ï¿½ setado os tracks diretamente na lista de semaforos no semaphorosmanager
+    * Isso sï¿½ ï¿½ possivel porque ï¿½ passado como argumento o endereï¿½o  para um semaforo
     */
 	void setSemaphore(Semaphore &semaphore, int left, int straight, int right);
 
     /*!
     * Define as pistas de saida da presente pista
-    * Só é usado para pistas que não forem sumidouras
+    * Sï¿½ ï¿½ usado para pistas que nï¿½o forem sumidouras
     */
 	void setOutWays(Track left,Track straight , Track right);
 
@@ -76,33 +76,58 @@ public:
 	std::string getName();
 
     /*!
-    * Muda a posição do veiculo diretamente na vehicle_list
-    * Por isso precisa do endereço do veiculo como parametro
+    * Muda a posiï¿½ï¿½o do veiculo diretamente na vehicle_list
+    * Por isso precisa do endereï¿½o do veiculo como parametro
     */
 	void changeVehiclePosition(const Vehicle &vehicle, int position);
 
     /*!
     * Muda a direcao do veiculo diretamente na vehicle_list
-    * Por isso precisa do endereço do veiculo como parametro
+    * Por isso precisa do endereï¿½o do veiculo como parametro
     */
 	void changeVehicleDirection(const Vehicle &vehicle);
 
     /*!
     * Muda a velocidade do veiculo diretamente na vehicle_list
-    * Por isso precisa do endereço do veiculo como parametro
+    * Por isso precisa do endereï¿½o do veiculo como parametro
     */
 	void changeVehicleVelocity(const Vehicle &vehicle);
 
     /*!
-    * Informa o endereço do veiculo no index X da lista de veiculos
+    * Informa o endereï¿½o do veiculo no index X da lista de veiculos
     */
 	Vehicle& vehicleAt(int index);
+	/*
+	 * Move todos os vwiculos pela pista
+	 */
+	void Track::vehicleMoves();
+	/*!
+	 * Verifica se existem algum veiculo no fim na pista.
+	 */
+	bool Track::vehicleAtEnd();
+	/*!
+	 * Set das possibilidades do carro virar
+	 */
+	void Track::setPossibilities();
+	/*!
+	 * Retornas as possibilidades do carro virar
+	 */
+	structures::ArrayList<int> Track::getPossibilities();
+	/*!
+	 * Retorna para onde o carro vai se ele estiver n semafaro
+	 */
+	int Track::whereVehicleGo();
+	/*!
+	 * Retorna semafaro.
+	 */
+	Semaphore Track::getSemaphore();
 
 private:
 
 	int size, velocity;
 	structures::LinkedQueue<Vehicle> vehicle_list{};
 	structures::ArrayList<Track> out_ways{3};
+	structures::ArrayList<int> possib_out_ways{3};
 	std::string track_name;
 	Semaphore *semaphore;
 

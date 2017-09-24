@@ -38,6 +38,12 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 	}
 }
 
+void Vehicle::CarMoves(){
+	int move = round(velocity/3.6);
+
+	position = position + move;
+}
+
 void Vehicle::setPosition(int position) {
 	this->position = position;
 }

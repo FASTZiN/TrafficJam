@@ -45,7 +45,7 @@ bool Track::fullTrack() {
 
 void Track::setSemaphore(Semaphore &semaphore, int left, int straight, int right) {
 	this->semaphore = semaphore;
-	this->semaphore->setTracks(this->Track, this->out_ways);
+	this->semaphore->setTracks(this->, this->out_ways);
 	this->semaphore->setPossibilities(left, straight, right);
 }
 
@@ -96,4 +96,44 @@ void Track::changeVehicleVelocity(const Vehicle &vehicle) {
 
 Vehicle& Track::vehicleAt(int index) {
 	return vehicle_list.list.at(index);
+}
+
+void Track::vehicleMoves(){
+	for(auto i=0; i<vehicle_list.size(); i++){
+		Vehicle toMove = this->vehicleAt(i);
+		if(toMove.getPosition() < size){
+			toMove.CarMoves();
+		}
+	}
+}
+
+bool Track::vehicleAtEnd(){
+	Vehicle *firstOnQueue = vehicle_list.front();
+
+	if(firstOnQueue->getPosition() >= size){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void Track::setPossibilities(){
+possib_out_ways = semaphore->getDirectionsPossibilities();
+}
+
+structures::ArrayList<int> Track::getPossibilities(){
+	return possib_out_ways;
+}
+
+int Track::whereVehicleGo(){
+	if(vehicleAtEnd()){
+		Vehicle *firstOnQueue = vehicle_list.front();
+		firstOnQueue ->generateDirection(this->possib_out_ways);
+		return firstOnQueue->getDirection();
+	}
+	return -1;
+}
+
+Semaphore Track::getSemaphore(){
+	return semaphore;
 }
