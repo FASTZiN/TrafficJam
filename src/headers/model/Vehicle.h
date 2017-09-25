@@ -55,6 +55,7 @@ public:
     * Retorna a posi��o do veiculo em rela��o ao tamanho da pista
     */
 	int getPosition();
+
 	/*!
 	 * Move o veiculo pela pista.
 	 */

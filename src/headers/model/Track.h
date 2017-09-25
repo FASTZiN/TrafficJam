@@ -100,34 +100,31 @@ public:
 	/*
 	 * Move todos os vwiculos pela pista
 	 */
-	void Track::vehicleMoves();
+	void vehicleMoves();
 	/*!
-	 * Verifica se existem algum veiculo no fim na pista.
+	 * Verifica se existem algum veiculo no semaforo.
 	 */
-	bool Track::vehicleAtEnd();
-	/*!
-	 * Set das possibilidades do carro virar
-	 */
-	void Track::setPossibilities();
-	/*!
-	 * Retornas as possibilidades do carro virar
-	 */
-	structures::ArrayList<int> Track::getPossibilities();
+	bool vehicleAtSemaphore();
+
 	/*!
 	 * Retorna para onde o carro vai se ele estiver n semafaro
 	 */
-	int Track::whereVehicleGo();
+	int whereVehicleGo();
 	/*!
 	 * Retorna semafaro.
 	 */
-	Semaphore Track::getSemaphore();
+	Semaphore getSemaphore();
+
+	/*!
+	 * Retorna lista de veiculos.
+	 */
+	structures::LinkedQueue<Vehicle> getVehicleList();
 
 private:
 
 	int size, velocity;
 	structures::LinkedQueue<Vehicle> vehicle_list{};
 	structures::ArrayList<Track> out_ways{3};
-	structures::ArrayList<int> possib_out_ways{3};
 	std::string track_name;
 	Semaphore *semaphore;
 

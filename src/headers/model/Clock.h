@@ -11,14 +11,16 @@ using namespace std;
 class Clock{
  public:
 	Clock();
-	Clock(string function, int timer);
+	Clock(std::string function, int timer);
+	Clock(SemaphoresManager &semaphores_manager, TracksManager &tracks_manager);
 	void vehicleArrivel(Track &track);
+	void vehicleDies(Track &track);
 	void semaphoreChange();
 	void changeTrack(Track &track_out, Track &track_in);
-	void semaphoreArrivel();
+	bool semaphoreArrivel(std::string track_name);
  private:
-  SemaphoresManager controller;
-  TracksManager control;
+  SemaphoresManager *sem_manager_pointer;
+  TracksManager *track_manager_pointer;
   string function;
   int timer;
 };

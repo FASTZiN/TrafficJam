@@ -100,35 +100,27 @@ Vehicle& Track::vehicleAt(int index) {
 
 void Track::vehicleMoves(){
 	for(auto i=0; i<vehicle_list.size(); i++){
-		Vehicle toMove = this->vehicleAt(i);
-		if(toMove.getPosition() < size){
-			toMove.CarMoves();
+		Vehicle *toMove = this->vehicleAt(i);
+		if(toMove->getPosition() < size){
+			toMove->CarMoves();
 		}
 	}
 }
 
-bool Track::vehicleAtEnd(){
+bool Track::vehicleAtSemaphore(){
 	Vehicle *firstOnQueue = vehicle_list.front();
 
-	if(firstOnQueue->getPosition() >= size){
+	if(firstOnQueue->getPosition() == firstOnQueue->getSize()){
 		return true;
 	} else {
 		return false;
 	}
 }
 
-void Track::setPossibilities(){
-possib_out_ways = semaphore->getDirectionsPossibilities();
-}
-
-structures::ArrayList<int> Track::getPossibilities(){
-	return possib_out_ways;
-}
-
 int Track::whereVehicleGo(){
-	if(vehicleAtEnd()){
+	if(vehicleAtSemaphore()){
 		Vehicle *firstOnQueue = vehicle_list.front();
-		firstOnQueue ->generateDirection(this->possib_out_ways);
+		firstOnQueue ->generateDirection(semaphore->getDirectionsPossibilities());
 		return firstOnQueue->getDirection();
 	}
 	return -1;
@@ -136,4 +128,8 @@ int Track::whereVehicleGo(){
 
 Semaphore Track::getSemaphore(){
 	return semaphore;
+}
+
+structures::LinkedQueue<Vehicle> Track::getVehicleList() {
+	return vehicle_list;
 }

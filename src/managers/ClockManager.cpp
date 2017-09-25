@@ -6,8 +6,10 @@
  */
 
 #include "../headers/application/ClockManager.h"
-ClockManager::ClockManager(){
+
+ClockManager::ClockManager(SemaphoresManager &semaphores_manager, TracksManager &tracks_manager) {
 	eventList = NULL;
+	clock = new Clock(SemaphoresManager &semaphores_manager, TracksManager &tracks_manager);
 }
 
 void ClockManager::changeSemaphore(int timer){

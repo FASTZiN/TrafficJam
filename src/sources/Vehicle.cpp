@@ -41,7 +41,10 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 void Vehicle::CarMoves(){
 	int move = round(velocity/3.6);
 
-	position = position + move;
+	if (position + move < size)
+		position = position - move;  // Esta andando em direção ao sinal (Decrementa a posicao visto que pos incial = tam da pista)
+	else
+		position = size;  // significa que chegou no sinal
 }
 
 void Vehicle::setPosition(int position) {

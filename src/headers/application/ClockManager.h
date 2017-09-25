@@ -7,7 +7,7 @@
 class ClockManager {
 public:
 
-	ClockManager();
+	ClockManager(SemaphoresManager &semaphores_manager, TracksManager &tracks_manager);
 	void changeSemaphore(int timer);
 	void vehicleArrival(Track &o1l, Track &n1s, Track &s1n, Track &n2s, Track &s2n, Track &l1o, int timer);
 	structures::LinkedList eventsList();
