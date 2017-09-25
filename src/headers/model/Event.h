@@ -15,9 +15,8 @@ class Event{
  public:
 	Event();
 	void vehicleBorns(Track &track, Vehicle &vehicle);
-	void vehicleKilled(Track &track, Vehicle &vehicle);
 	void semaphoreStateChange(Semaphore &semaphore);
-	void vehicleIsInSemaphore(Track &track, Vehicle &vehicle, Semaphore &semaphore);
+	void vehicleIsInSemaphore(Track &track, Vehicle &vehicle);
 	void vehicleChangedTrack(Track &track, Vehicle &vehicle);
 
  private:

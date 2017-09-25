@@ -6,12 +6,14 @@ Track::Track() {
 	size = 0;
 	velocity = 0;
 	semaphore = NULL;
+	born_frequency = 0;
 }
 
-Track::Track(std::string track_name, int velocity, int size) {
+Track::Track(std::string track_name, int velocity, int size, int born_freq) {
 	this->track_name = track_name;
 	this->size = size;
 	this->velocity = velocity;
+	this->born_frequency = born_freq;
 	semaphore = NULL;
 }
 
@@ -127,7 +129,7 @@ int Track::whereVehicleGo(){
 }
 
 Semaphore Track::getSemaphore(){
-	return semaphore;
+	return *semaphore;
 }
 
 structures::LinkedQueue<Vehicle> Track::getVehicleList() {

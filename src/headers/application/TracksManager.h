@@ -18,7 +18,7 @@ public:
     * Cria uma track e define seu nome, velocidade padr�o e tamanho
     * Adiciona a track na lista de tracks
     */
-	void createTrack(std::string track_name, int velocity, int size);
+	void createTrack(std::string track_name, int velocity, int size, int freq);
 
     /*!
     * Troca veiculos de tracks

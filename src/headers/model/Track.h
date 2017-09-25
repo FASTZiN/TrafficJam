@@ -22,7 +22,7 @@ public:
     * Define o nome, a velocidade padrao e o tamanho da pista
     * Seta o resto para NULL
     */
-	Track(std::string track_name, int velocity, int size);
+	Track(std::string track_name, int velocity, int size, int born_freq);
 
     /*!
     * Cria um veiculo em pistas fontes (tamanho randomico)

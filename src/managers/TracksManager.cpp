@@ -5,8 +5,8 @@ TracksManager::TracksManager() {
 	all_tracks = new structures::LinkedList<Track>();
 }
 
-void TracksManager::createTrack(std::string track_name, int velocity, int size) {
-	Track track = new Track(track_name, velocity, size);
+void TracksManager::createTrack(std::string track_name, int velocity, int size, int freq) {
+	Track track = new Track(track_name, velocity, size, freq);
 	all_tracks.push_back(track);
 
 }
@@ -14,7 +14,10 @@ void TracksManager::createTrack(std::string track_name, int velocity, int size) 
 void TracksManager::switchTrack(Track &track_out, Track &track_in) {
 	if (all_tracks.contains(track_out) && all_tracks.contains(track_in)) {
 		Track *track_out_pointer = track_out, *track_in_pointer = track_in;
-		track_in_pointer->pushVehicle(track_out_pointer->popVehicle());
+		if (!track_in_pointer->fullTrack())
+			track_in_pointer->pushVehicle(track_out_pointer->popVehicle());
+		else
+			throw std::out_of_range ("Cant change track");
 	} else {
 		throw std::out_of_range ("Those tracks aren't on the tracks list");
 	}

@@ -3,6 +3,7 @@
 
 #include "../headers/model/Track.h"
 #include "../headers/model/Semaphore.h"
+#include "../headers/model/Event.h"
 
 class SemaphoresManager {
 public:

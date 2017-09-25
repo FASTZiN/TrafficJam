@@ -77,6 +77,12 @@ class main {
 
 			tryAddCarInAllTracks(i);
 
+			tryMoveCars(i);
+
+			trySemaphoresChangeStage(i);
+
+			tryVehicleSwitchTrack(i);
+
 
 
 
@@ -94,7 +100,8 @@ class main {
 			try {
 				if (*track_pointer->getBornFrequency() == time) {
 					tracks_manager.vehicleIsBorn(*track_pointer);
-					this_second_events.vehicleBorns(*track_pointer, track_pointer->getVehicleList().front());
+						if (add_vehc_op_sucess)
+							this_second_events.vehicleBorns(*track_pointer, track_pointer->getVehicleList().back());
 				}
 
 			} catch (std::out_of_range e) {
@@ -109,24 +116,33 @@ class main {
 			track_pointer->vehicleMoves();
 			Vehicle *front_vehicle_pointer = track_pointer->getVehicleList().front();
 			if (front_vehicle_pointer->getPosition() == track_pointer->getVehicleList().front().getSize()) {
-				this_second_events.vehicleIsInSemaphore(track_pointer, front_vehicle_pointer, track_pointer->getSemaphore());
+				this_second_events.vehicleIsInSemaphore(tracks_manager.getSpecificTrack(i), tracks_manager.getSpecificTrack(i).getVehicleList().front());
 			}
 		}
 	}
 
-	void semaphoresChangeStage(int time) {
-		semaphores_manager.nextStage();
-		semaphores_manager.changeStage(this_second_events);
+	void trySemaphoresChangeStage(int time) {
+		if (time % 5 == 0) {
+			semaphores_manager.nextStage();
+			semaphores_manager.changeStage(this_second_events);
+		}
 	}
 
-	void tryvehicleSwitchTrack(int time) {
+	void tryVehicleSwitchTrack(int time) {
 		for (int i = 0; i < tracks_manager.numOfTracks(); i	++) {
 			Track *track_pointer = tracks_manager.getSpecificTrack(i);
 			if (track_pointer->getVehicleList().front().getPosition() == track_pointer->getVehicleList().front().getSize()) {
 				bool switch_track_op_sucess = true;
+					track_pointer->getVehicleList().front().generateDirection(track_pointer->getSemaphore().getDirectionsPossibilities());
 
 				try {
+					if (track_pointer->getSemaphore().getState() == 0)
+						switch_track_op_sucess = false;
+					else
+						tracks_manager.switchTrack(*track_pointer, track_pointer->getOutWays().at(track_pointer->getVehicleList().front().getDirection()));
 
+					if (switch_track_op_sucess)
+						this_second_events.vehicleChangedTrack(track_pointer->getOutWays().at(track_pointer->getVehicleList().front().getDirection()), track_pointer->getOutWays().at(track_pointer->getVehicleList().front().getDirection()).getVehicleList().back());
 				} catch (std::out_of_range e) {
 					switch_track_op_sucess = false;
 				}

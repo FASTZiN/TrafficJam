@@ -25,8 +25,9 @@ void Vehicle::setVelocity(int velocity_) {
  *
  */
 void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilities) {
+	int direcao = 0;
 	srand(time(0));
-	int direcao = 1 + (rand() % 10); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1).
+	direcao = 1 + (rand() % 10); // Gera um valor entre 0 e 9 somado a 1(intervalo de 0 a 1).
 	if (direcao <= directions_possibilities.at(0)) { //  Verifica se eh menor ao probabilidade de virar a esquerda.
 		direction = 0;
 	} else {
@@ -41,8 +42,8 @@ void Vehicle::generateDirection(structures::ArrayList<int> directions_possibilit
 void Vehicle::CarMoves(){
 	int move = round(velocity/3.6);
 
-	if (position + move < size)
-		position = position - move;  // Esta andando em direção ao sinal (Decrementa a posicao visto que pos incial = tam da pista)
+	if (position - move > size)
+		position = position - move;  // Esta andando em direï¿½ï¿½o ao sinal (Decrementa a posicao visto que pos incial = tam da pista)
 	else
 		position = size;  // significa que chegou no sinal
 }

@@ -38,13 +38,15 @@ public:
     * Pois n�o iremos verificar informa��es sobre a track dentro do semaforo
     * E sim dentro das tracks
     */
-	void Semaphore::setTracks(Track track_in, structures::ArrayList<Track> tracks_out);
+	void setTracks(Track track_in, structures::ArrayList<Track> tracks_out);
 
     /*!
     * Retorna as possibilidades de saida
     * Indice 0 = esquerda, indice 1 = reto, indice 2 = direita
     */
+
 	structures::ArrayList<int> getDirectionsPossibilities();
+
 	int getState();
 
     /*!
