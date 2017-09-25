@@ -9,7 +9,7 @@ class Semaphore {
 public:
 
     /*!
-    * Construtor padrão do semaforo
+    * Construtor padrï¿½o do semaforo
     * Seta name para NULL, Pointing para -1 e o resto = 0
     */
 	Semaphore();
@@ -22,7 +22,7 @@ public:
 
     /*!
     * Seta as possibilidades de virada do semaforo
-    * Será utilizado posteriormente nos veiculos para definir onde irão virar
+    * Serï¿½ utilizado posteriormente nos veiculos para definir onde irï¿½o virar
     */
 	void setPossibilities(int left, int straight, int right);
 
@@ -33,12 +33,12 @@ public:
 	void setState(int state);
 
     /*!
-    * Define a track que o semaforo está e as de saida
-    * Não é necessario informar um endereço para a track que ele pertence:
-    * Pois não iremos verificar informações sobre a track dentro do semaforo
+    * Define a track que o semaforo estï¿½ e as de saida
+    * Nï¿½o ï¿½ necessario informar um endereï¿½o para a track que ele pertence:
+    * Pois nï¿½o iremos verificar informaï¿½ï¿½es sobre a track dentro do semaforo
     * E sim dentro das tracks
     */
-	void setTracks(Track track_in, structures::ArrayList<Track> tracks_out);
+	void Semaphore::setTracks(Track track_in, structures::ArrayList<Track> tracks_out);
 
     /*!
     * Retorna as possibilidades de saida
@@ -58,7 +58,7 @@ public:
 	int getRedTime();
 
     /*!
-    * Retorna a direção que o sinal controla (N = 0, 1 = O, 2 = S, 3 = L);
+    * Retorna a direï¿½ï¿½o que o sinal controla (N = 0, 1 = O, 2 = S, 3 = L);
     */
 	int getPointing();
 
