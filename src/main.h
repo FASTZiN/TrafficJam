@@ -68,12 +68,13 @@ class main {
 
 		for (int i = 0; i < 60; i++) {
 			if (i == 59) {
+				printAllEvents();
 				i = 0;
 				clock.~LinkedList();
 				structures::LinkedList<Event> new_clock { };
 				clock = new_clock;
 			}
-			this_second_events = new Event();
+			this_second_events = new Event(i);
 
 			tryAddCarInAllTracks(i);
 
@@ -83,13 +84,8 @@ class main {
 
 			tryVehicleSwitchTrack(i);
 
+			clock.push_back(this_second_events);
 
-
-
-
-
-
-			clock.push_back(this_second_events)
 		}
 
 	}
@@ -98,7 +94,7 @@ class main {
 			Track *track_pointer = tracks_manager.getSpecificTrack(i);
 			bool add_vehc_op_sucess = true;
 			try {
-				if (*track_pointer->getBornFrequency() == time) {
+				if (time % *track_pointer->getBornFrequency() == 0) {
 					tracks_manager.vehicleIsBorn(*track_pointer);
 						if (add_vehc_op_sucess)
 							this_second_events.vehicleBorns(*track_pointer, track_pointer->getVehicleList().back());
@@ -148,6 +144,16 @@ class main {
 				}
 			}
 
+		}
+	}
+
+	void printAllEvents() {
+		int i;
+		int j;
+		for (i = 0; i < clock.size(); i++) {
+			structures::LinkedList<std::string> event = clock.at(i).getEventList();
+			for (j = 0; j < event.size(); j++);
+				printf("%s \n", event.at(j));
 		}
 	}
 };
