@@ -1,19 +1,19 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-#include "../headers/application/ClockManager.h"
+#include "../library/LinkedList.h"
+#include "../headers/model/Event.h"
 #include "../headers/application/SemaphoresManager.h"
 #include "../headers/application/TracksManager.h"
 
 class main {
-	ClockManager clock_manager;
 	SemaphoresManager semaphores_manager;
 	TracksManager tracks_manager;
+	structures::LinkedList<Event> clock {};
 
 	int main(int argc, char *argv[]) {
 		tracks_manager = new TracksManager();
 		semaphores_manager = new SemaphoresManager();
-		clock_manager = new ClockManager(&semaphores_manager, &tracks_manager);
 
 		tracks_manager.createTrack("N1sul", 60, 500);
 		tracks_manager.createTrack("N1norte", 60, 500);
