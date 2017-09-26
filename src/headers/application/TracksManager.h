@@ -64,6 +64,11 @@ public:
     */
 	Track& getSpecificTrack(std::string name);
 
+    /*!
+     * Retorna o num de pistas
+    */
+	int numOfTracks();
+
 	void TracksManager::timeToSwitch();
 
 private:

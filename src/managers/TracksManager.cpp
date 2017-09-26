@@ -67,3 +67,7 @@ void TracksManager::timeToSwitch(){
 	}
 }
 
+int TracksManager::numOfTracks() {
+	return all_tracks.size();
+}
+
