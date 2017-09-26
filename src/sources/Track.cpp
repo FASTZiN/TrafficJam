@@ -70,7 +70,7 @@ std::string Track::getName() {
 void Track::changeVehiclePosition(const Vehicle &vehicle, int position) {
 	if (vehicle_list.list.contains(vehicle)) {
 		Vehicle *vehicle_pointer = vehicle;
-		vehicle_pointer->setPosition(position);
+		vehicle_pointer->CarMoves();
 	} else {
 		throw std::out_of_range ("This vehicle isn't on this track");
 	}
@@ -132,4 +132,8 @@ Semaphore Track::getSemaphore(){
 
 structures::LinkedQueue<Vehicle> Track::getVehicleList() {
 	return vehicle_list;
+}
+
+int Track::getBornFrequency() {
+	return born_frequency;
 }

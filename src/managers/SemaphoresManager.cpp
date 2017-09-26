@@ -10,22 +10,22 @@ void SemaphoresManager::createSemaphore(std::string name, int green_time,int red
 	all_semaphores.push_back(semaphore);
 }
 
-void SemaphoresManager::changeStage() {
+void SemaphoresManager::changeStage(Event &event) {
 	switch (actual_stage) {
 		default:
-			this->openPointersSem(4);
+			this->openPointersSem(4, event);
 			break;
 		case 0:
-			this->openPointersSem(0);
+			this->openPointersSem(0, event);
 			break;
 		case 1:
-			this->openPointersSem(1);
+			this->openPointersSem(1, event);
 			break;
 		case 2:
-			this->openPointersSem(2);
+			this->openPointersSem(2, event);
 			break;
 		case 3:
-			this->openPointersSem(3);
+			this->openPointersSem(3, event);
 			break;
 	}
 }
@@ -50,13 +50,16 @@ int SemaphoresManager::getActualStage() {
 	return actual_stage;
 }
 
-void SemaphoresManager::openPointersSem(int pointing)  {
+void SemaphoresManager::openPointersSem(int pointing, Event &event)  {
 	for (int i = 0; i < all_semaphores.size(); i++) {
 		Semaphore *semaphore = all_semaphores.at(i);
 		if (semaphore->getPointing() == pointing)
 			semaphore->setState(1);
 		else
 			semaphore->setState(0);
+		Event *event_pointer = event;
+		event_pointer->semaphoreStateChange(all_semaphores.at(i));
+
 	}
 }
 

@@ -27,7 +27,7 @@ public:
     * Estado 3: Todos que controlam as ruas da parte LESTE aberto e o resto fechados
     * Estado 4: Todos os semaforos fechados
     */
-	void changeStage();
+	void changeStage(Event &event);
 
     /*!
     * Incrementa em uma unidade o atributo actual_stage
@@ -61,7 +61,7 @@ private:
 
 	structures::LinkedList<Semaphore> all_semaphores;
 	int actual_stage;
-	void openPointersSem(int pointing);
+	void openPointersSem(int pointing, Event &event);
 };
 
 #endif

@@ -10,6 +10,7 @@
 class main {
 	SemaphoresManager semaphores_manager;
 	TracksManager tracks_manager;
+	Event this_second_events;
 	structures::LinkedList<Event> clock { };
 
 	int main(int argc, char *argv[]) {
@@ -72,14 +73,65 @@ class main {
 				structures::LinkedList<Event> new_clock { };
 				clock = new_clock;
 			}
+			this_second_events = new Event();
 
-			tryAddCarInAllTracks();
+			tryAddCarInAllTracks(i);
+
+
+
+
+
+
+
+			clock.push_back(this_second_events)
 		}
 
 	}
-	void tryAddCarInAllTracks () {
+	void tryAddCarInAllTracks (int time) {
 		for (int i = 0; i < tracks_manager.numOfTracks(); i++) {
-			tracks_manager.vehicleIsBorn(tracks_manager.getSpecificTrack(i)))
+			Track *track_pointer = tracks_manager.getSpecificTrack(i);
+			bool add_vehc_op_sucess = true;
+			try {
+				if (*track_pointer->getBornFrequency() == time) {
+					tracks_manager.vehicleIsBorn(*track_pointer);
+					this_second_events.vehicleBorns(*track_pointer, track_pointer->getVehicleList().front());
+				}
+
+			} catch (std::out_of_range e) {
+				add_vehc_op_sucess = false;
+			}
+		}
+	}
+
+	void tryMoveCars(int time) {
+		for (int i = 0; i < tracks_manager.numOfTracks(); i++) {
+			Track *track_pointer = tracks_manager.getSpecificTrack(i);
+			track_pointer->vehicleMoves();
+			Vehicle *front_vehicle_pointer = track_pointer->getVehicleList().front();
+			if (front_vehicle_pointer->getPosition() == track_pointer->getVehicleList().front().getSize()) {
+				this_second_events.vehicleIsInSemaphore(track_pointer, front_vehicle_pointer, track_pointer->getSemaphore());
+			}
+		}
+	}
+
+	void semaphoresChangeStage(int time) {
+		semaphores_manager.nextStage();
+		semaphores_manager.changeStage(this_second_events);
+	}
+
+	void tryvehicleSwitchTrack(int time) {
+		for (int i = 0; i < tracks_manager.numOfTracks(); i	++) {
+			Track *track_pointer = tracks_manager.getSpecificTrack(i);
+			if (track_pointer->getVehicleList().front().getPosition() == track_pointer->getVehicleList().front().getSize()) {
+				bool switch_track_op_sucess = true;
+
+				try {
+
+				} catch (std::out_of_range e) {
+					switch_track_op_sucess = false;
+				}
+			}
+
 		}
 	}
 };

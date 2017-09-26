@@ -3,7 +3,7 @@
 
 
 	Event::Event() {
-
+		time_of_event =
 	}
 
 	void Event::vehicleBorns(Track &track, Vehicle &vehicle) {

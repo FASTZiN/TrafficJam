@@ -74,8 +74,6 @@ public:
     */
 	int numOfTracks();
 
-	void TracksManager::timeToSwitch();
-
 private:
 
 	structures::LinkedList<Track> all_tracks;

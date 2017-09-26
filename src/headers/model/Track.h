@@ -120,9 +120,14 @@ public:
 	 */
 	structures::LinkedQueue<Vehicle> getVehicleList();
 
+	/*!
+	 * Retorna a freq q um veiculo nasce.
+	 */
+	int getBornFrequency();
+
 private:
 
-	int size, velocity;
+	int size, velocity, born_frequency;
 	structures::LinkedQueue<Vehicle> vehicle_list{};
 	structures::ArrayList<Track> out_ways{3};
 	std::string track_name;

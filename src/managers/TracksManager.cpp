@@ -57,16 +57,6 @@ Track& TracksManager::getSpecificTrack(std::string name) {
 	throw std::out_of_range ("There's no track with this name");
 }
 
-void TracksManager::timeToSwitch(){
-	for(auto i = 0; i < 8; i++){
-		Track *track_out = all_tracks.at(i);
-		Semaphore out = track_out -> getSemaphore();
-	if(track_out->vehicleAtEnd() && out.getPointing() == 2 ){
-
-	}
-	}
-}
-
 int TracksManager::numOfTracks() {
 	return all_tracks.size();
 }
