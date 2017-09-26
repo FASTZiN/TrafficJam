@@ -79,7 +79,7 @@ class main {
 	}
 	void tryAddCarInAllTracks () {
 		for (int i = 0; i < tracks_manager.numOfTracks(); i++) {
-
+			tracks_manager.vehicleIsBorn(tracks_manager.getSpecificTrack(i)))
 		}
 	}
 };

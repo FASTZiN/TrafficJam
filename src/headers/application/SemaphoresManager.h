@@ -8,13 +8,13 @@ class SemaphoresManager {
 public:
 
     /*!
-    * Construtor padrão do gerenciador de semaforos (necessario para inicializar no main)
+    * Construtor padrï¿½o do gerenciador de semaforos (necessario para inicializar no main)
     */
 	SemaphoresManager();
 
     /*!
     * Cria um semaforo e define:
-    * Seu nome; Os Tempos das luzes verde e vermelho; Que direção controla (N,S,L,O);
+    * Seu nome; Os Tempos das luzes verde e vermelho; Que direï¿½ï¿½o controla (N,S,L,O);
     * Adiciona o semaforo na lista de semaforos
     */
 	void createSemaphore(std::string name, int green_time, int red_time, int pointing);
@@ -32,25 +32,30 @@ public:
     /*!
     * Incrementa em uma unidade o atributo actual_stage
     * (SERA NECESSARIO UM LISTENER BASEADO NA LISTA DE EVENTOS PARA CHAMAR ESTA FUNCAO)
-    * (SERÁ NECESSARIO TAMBEM UM LISTENER PARA MUDANÇA DE VALOR DO ACTUAL STAGE)
+    * (SERï¿½ NECESSARIO TAMBEM UM LISTENER PARA MUDANï¿½A DE VALOR DO ACTUAL STAGE)
     * (ESTE LISTENER ENTAO CHAMA A FUNCAO QUE MUDA AS LUZES DO SEMAFORO)
     */
 	void nextStage();
 
     /*!
     * Retorna o valor atual do actual_stage
-    * Sera necessario na implementação do listener
+    * Sera necessario na implementaï¿½ï¿½o do listener
     */
 	int getActualStage();
 
     /*!
-    * Retorna o endereço de um semaforo especifico (Caso exista)
-    * É de grande importancia no TracksManager, visto que:
+    * Retorna o endereï¿½o de um semaforo especifico (Caso exista)
+    * ï¿½ de grande importancia no TracksManager, visto que:
     * Uma track possui um ponteiro pra um semaforo
-    * Assim quando ele mudar, não é necessario alterar a variavel ponteiro em uma track.
+    * Assim quando ele mudar, nï¿½o ï¿½ necessario alterar a variavel ponteiro em uma track.
     * Nem alterar a lista de todas as tracks no TracksManager, ou seja, simplifica!
     */
 	Semaphore& getSpecificSemaphore(std::string name);
+
+    /*!
+     * Mesmo de cima porem com parametro index;
+    */
+	Semaphore& getSpecificSemaphore(int index);
 
 private:
 

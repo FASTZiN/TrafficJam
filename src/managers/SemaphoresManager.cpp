@@ -37,7 +37,7 @@ Semaphore& SemaphoresManager::getSpecificSemaphore(std::string name) {
 			break;
 		}
 	}
-	throw std::out_of_range ("There's no semaphore with this name");  // Caso percorra todo o for significa que não achou nenhum com o nome
+	throw std::out_of_range ("There's no semaphore with this name");  // Caso percorra todo o for significa que nï¿½o achou nenhum com o nome
 }
 
 void SemaphoresManager::nextStage() {
@@ -58,5 +58,9 @@ void SemaphoresManager::openPointersSem(int pointing)  {
 		else
 			semaphore->setState(0);
 	}
+}
+
+Semaphore& SemaphoresManager::getSpecificSemaphore(int index) {
+	return all_semaphores.at(index);
 }
 

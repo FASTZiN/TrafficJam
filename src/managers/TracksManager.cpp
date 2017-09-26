@@ -71,3 +71,7 @@ int TracksManager::numOfTracks() {
 	return all_tracks.size();
 }
 
+Track& TracksManager::getSpecificTrack(int index) {
+	return all_tracks.at(index);
+}
+

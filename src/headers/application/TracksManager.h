@@ -65,6 +65,11 @@ public:
 	Track& getSpecificTrack(std::string name);
 
     /*!
+     * Mesmo de cima porem com argumento index
+    */
+	Track& getSpecificTrack(int index);
+
+    /*!
      * Retorna o num de pistas
     */
 	int numOfTracks();
